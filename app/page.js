@@ -1,9 +1,11 @@
-import React from 'react'
+import React from "react";
+import "./globals.css";
+import Dashboard from "./dashboard/page";
 
 const page = () => {
   return (
-    <div>Daily Planner</div>
-  )
-}
+    <Dashboard />
+  );
+};
 
-export default page
+export default page;
