@@ -124,7 +124,7 @@ const TaskItem = React.memo(function TaskItem({
   return (
     <li
       className={`flex items-center justify-between mb-3 p-4 rounded-lg shadow transition ${
-        task.completed ? "bg-gray-100" : "bg-white"
+        task.completed ? "bg-gray-100" : "bg-[#FBF5FF]"
       } hover:shadow-lg`}
     >
       {isEditing ? (
@@ -329,12 +329,12 @@ export default function TaskList() {
     <div className={`flex flex-col ${urgentTasks.length > 0 ? "md:flex-row" : ""} min-h-screen gap-6`}>
       <div className="mb-4">
         <Link href="/dashboard">
-          <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition">
+          <button className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition ml-1">
             Go to Dashboard
           </button>
         </Link>
       </div>
-      <div className={`${urgentTasks.length > 0 ? "md:w-2/3" : "w-full"} p-6 bg-gray-50 rounded-xl shadow`}>
+      <div className={`${urgentTasks.length > 0 ? "md:w-2/3" : "w-full"} p-6 bg-[#FFFFFF] rounded-xl shadow`}>
         <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
           <span className="text-blue-600">📝</span> Regular Tasks
         </h2>
