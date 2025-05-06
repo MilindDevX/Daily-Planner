@@ -25,7 +25,7 @@ export default function AuthForm() {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 relative">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-50 relative w-full">
       {error && (
         <div className="absolute top-1/4 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full flex justify-center z-10">
           <div className="bg-red-100 border border-red-400 text-red-700 px-6 py-3 rounded text-center shadow-md max-w-md w-full">
