@@ -1,5 +1,5 @@
 import React from "react";
-import "./globals.css";
+import "./styles/globals.css";
 import Dashboard from "./dashboard/page";
 
 const page = () => {
