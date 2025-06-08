@@ -19,20 +19,36 @@ export const TaskProvider = ({ children }) => {
     const sampleTasks = [
       {
         id: 1,
-        title: 'Complete project proposal',
-        description: 'Finish the quarterly project proposal document',
+        title: 'Complete Capstone project',
+        description: 'Finish the project before the mentor connect',
         deadline: '2025-06-09',
         priority: 'high',
         completed: false,
       },
       {
         id: 2,
-        title: 'Prepare for team meeting',
-        description: 'Slides and notes for tomorrow',
+        title: 'Prepare for end',
+        description: 'Study slides and notes tomorrow',
         deadline: '2025-06-10',
         priority: 'medium',
         completed: false,
       },
+      {
+        id: 3,
+        title: 'Build Portfolio website',
+        description: 'Create a personal portfolio to showcase projects',
+        deadline: '2025-06-30',
+        priority: 'medium',
+        completed: false,
+      },
+      {
+        id: 4,
+        title: 'Complete Advanced React course',
+        description: 'Finish the last module of the course',
+        deadline: '2025-06-10',
+        priority: 'high',
+        completed: true,
+      }
     ];
     setTasks(sampleTasks);
   }, []);
