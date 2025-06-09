@@ -1,6 +1,5 @@
 import React from 'react';
 import { CheckCircle2, Clock, AlertCircle, Calendar } from 'lucide-react';
-import TaskTimer from './TaskTimer';
 
 const HomePage = ({ tasks, currentTime, getUrgentTasks, getUpcomingTasks, getDaysUntilDeadline, getPriorityColor }) => {
   const urgentTasks = getUrgentTasks();

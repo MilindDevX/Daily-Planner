@@ -18,7 +18,7 @@ const Signup = () => {
     }
     try {
       await signup(email, password);
-      router.push('/');
+      router.push('/home');
     } catch (err) {
       setError('Failed to create account. Please try again.');
     }

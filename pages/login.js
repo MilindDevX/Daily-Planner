@@ -17,7 +17,7 @@ const LoginPage = () => {
 
     try {
       await login(email, password);
-      router.push('/');
+      router.push('/home');
     } catch (err) {
       if (err.code === 'auth/user-not-found') {
         setError('No user found. Please sign up first.');
