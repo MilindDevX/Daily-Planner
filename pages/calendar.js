@@ -30,16 +30,11 @@ const Calendar = () => {
       const isToday = date.toDateString() === today.toDateString();
       const dayTasks = getTasksForDate(date);
       
-      
-      const adjustedDate = new Date(date);
-      adjustedDate.setDate(adjustedDate.getDate() + 1);
-      const adjustedTasks = getTasksForDate(adjustedDate);
-      
       days.push(
         <div key={d} className={`h-24 border p-1 ${isToday ? 'bg-blue-50 border-blue-300' : ''}`}>
           <div className={`text-sm font-semibold ${isToday ? 'text-blue-600' : ''}`}>{d}</div>
           <div className="space-y-1">
-            {adjustedTasks.slice(0, 2).map((task) => (
+            {dayTasks.slice(0, 2).map((task) => (
               <div
                 key={task.id}
                 className={`text-xs p-1 rounded truncate ${

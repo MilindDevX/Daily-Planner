@@ -116,7 +116,7 @@ export const TaskProvider = ({ children }) => {
   };
 
   const getTasksForDate = (date) => {
-    const dateStr = date.toISOString().split('T')[0];
+    const dateStr = date.toLocaleDateString('en-CA');
     return tasks.filter(task => task.deadline === dateStr);
   };
 

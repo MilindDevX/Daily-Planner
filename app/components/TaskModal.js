@@ -16,6 +16,9 @@ const TaskModal = () => {
 
   if (!showTaskModal) return null;
 
+  const todayStr = new Date().toISOString().split('T')[0];
+  const isPast = taskForm.deadline && new Date(taskForm.deadline) < new Date(todayStr);
+
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
       <div className="bg-white rounded-lg p-6 w-full max-w-md mx-4">
@@ -37,6 +40,7 @@ const TaskModal = () => {
               onChange={(e) => setTaskForm({ ...taskForm, title: e.target.value })}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Enter task title"
+              required
             />
           </div>
 
@@ -48,6 +52,7 @@ const TaskModal = () => {
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               rows="3"
               placeholder="Enter task description"
+              required
             />
           </div>
 
@@ -58,7 +63,11 @@ const TaskModal = () => {
               value={taskForm.deadline}
               onChange={(e) => setTaskForm({ ...taskForm, deadline: e.target.value })}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
             />
+            {isPast && (
+              <p className="text-xs text-red-600 mt-1">Warning: You selected a past date.</p>
+            )}
           </div>
 
           <div>
@@ -67,6 +76,7 @@ const TaskModal = () => {
               value={taskForm.priority}
               onChange={(e) => setTaskForm({ ...taskForm, priority: e.target.value })}
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
             >
               <option value="low">Low</option>
               <option value="medium">Medium</option>
