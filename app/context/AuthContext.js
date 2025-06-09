@@ -23,20 +23,12 @@ export const AuthProvider = ({ children }) => {
   return signInWithEmailAndPassword(auth, email, password);
 };
 
-  const signup = async (email, password) => {
-    try {
-      await createUserWithEmailAndPassword(auth, email, password);
-    } catch (error) {
-      console.error('Signup Error:', error.message);
-    }
+  const signup = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const logout = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.error('Logout Error:', error.message);
-    }
+  const logout = () => {
+    return signOut(auth);
   };
 
   return (
