@@ -31,7 +31,7 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             <Link
               href="/home"
-              className={`px-3 py-2 text-sm ${linkStyle("/")}`}
+              className={`px-3 py-2 text-sm ${linkStyle("/home")}`}
             >
               Home
             </Link>
