@@ -2,8 +2,18 @@ import React from 'react';
 import { CheckCircle2, Clock, AlertCircle, Calendar } from 'lucide-react';
 
 const HomePage = ({ tasks, currentTime, getUrgentTasks, getUpcomingTasks, getDaysUntilDeadline, getPriorityColor }) => {
-  const urgentTasks = getUrgentTasks();
-  const upcomingTasks = getUpcomingTasks();
+  const isFutureOrToday = (dateStr) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const date = new Date(dateStr);
+    return date >= today;
+  };
+
+  const urgentTasks = getUrgentTasks().filter(task => isFutureOrToday(task.deadline));
+  const upcomingTasks = getUpcomingTasks()
+  .filter(task => isFutureOrToday(task.deadline))
+  .sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+
 
   return (
     <div className="space-y-6">
@@ -15,7 +25,7 @@ const HomePage = ({ tasks, currentTime, getUrgentTasks, getUpcomingTasks, getDay
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatBox icon={<CheckCircle2 className="h-8 w-8 text-green-500 mr-3" />} title="Total Tasks" value={tasks.length} />
-        <StatBox icon={<Clock className="h-8 w-8 text-orange-500 mr-3" />} title="Pending" value={tasks.filter(t => !t.completed).length} />
+        <StatBox icon={<Clock className="h-8 w-8 text-orange-500 mr-3" />} title="Pending" value={tasks.filter(t => !t.completed && isFutureOrToday(t.deadline)).length} />
         <StatBox icon={<AlertCircle className="h-8 w-8 text-red-500 mr-3" />} title="Urgent" value={urgentTasks.length} />
       </div>
 
@@ -67,8 +77,7 @@ const TaskList = ({ title, icon, tasks, getDaysUntilDeadline, getPriorityColor }
                   {task.deadline}
                 </span>
                 <div className="flex items-center space-x-2">
-                  
-                  <span className={`text-sm font-medium ${daysLeft <= 1 ? 'text-red-600' : daysLeft <= 2 ? 'text-orange-600' : 'text-blue-600'}`}>
+                  <span className={`text-sm font-medium ${daysLeft === 0 ? 'text-red-600' : daysLeft === 1 ? 'text-orange-600' : 'text-blue-600'}`}>
                     {daysLeft === 0 ? 'Due Today' : daysLeft === 1 ? 'Due Tomorrow' : `${daysLeft} days left`}
                   </span>
                 </div>
