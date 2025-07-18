@@ -4,7 +4,9 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
+  GoogleAuthProvider,
+  signInWithPopup
 } from 'firebase/auth';
 
 const AuthContext = createContext();
@@ -16,23 +18,33 @@ export const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
       setUser(firebaseUser);
     });
+
     return () => unsubscribe();
   }, []);
 
+  // Email/Password login
   const login = (email, password) => {
-  return signInWithEmailAndPassword(auth, email, password);
-};
+    return signInWithEmailAndPassword(auth, email, password);
+  };
 
+  // Email/Password signup
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
+  // Logout
   const logout = () => {
     return signOut(auth);
   };
 
+  // Google login
+  const loginWithGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    return signInWithPopup(auth, provider);
+  };
+
   return (
-    <AuthContext.Provider value={{ user, login, logout, signup }}>
+    <AuthContext.Provider value={{ user, login, signup, logout, loginWithGoogle }}>
       {children}
     </AuthContext.Provider>
   );

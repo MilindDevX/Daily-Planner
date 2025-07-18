@@ -1,5 +1,5 @@
 import React, { createContext, useState, useEffect } from 'react';
-
+import { Tasks } from '../data.js'; 
 export const TaskContext = createContext();
 
 export const TaskProvider = ({ children }) => {
@@ -16,41 +16,7 @@ export const TaskProvider = ({ children }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
 
   useEffect(() => {
-    const sampleTasks = [
-      {
-        id: 1,
-        title: 'Complete Capstone project',
-        description: 'Finish the project before the mentor connect',
-        deadline: '2025-06-09',
-        priority: 'high',
-        completed: false,
-      },
-      {
-        id: 2,
-        title: 'Prepare for end',
-        description: 'Study slides and notes tomorrow',
-        deadline: '2025-06-10',
-        priority: 'medium',
-        completed: false,
-      },
-      {
-        id: 3,
-        title: 'Build Portfolio website',
-        description: 'Create a personal portfolio to showcase projects',
-        deadline: '2025-06-30',
-        priority: 'medium',
-        completed: false,
-      },
-      {
-        id: 4,
-        title: 'Complete Advanced React course',
-        description: 'Finish the last module of the course',
-        deadline: '2025-06-10',
-        priority: 'high',
-        completed: true,
-      }
-    ];
-    setTasks(sampleTasks);
+    setTasks(Tasks);
   }, []);
 
   const resetForm = () => {

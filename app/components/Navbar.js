@@ -15,7 +15,7 @@ const Navbar = () => {
 
   async function handleLogout() {
     await logout();
-    router.push("/");
+    router.push("/login");
   }
   return (
     <nav className="bg-white shadow-md border-b">

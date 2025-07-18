@@ -1,0 +1,50 @@
+export const Tasks = [
+      {
+        id: 1,
+        title: 'Complete Capstone project',
+        description: 'Finish the project before the mentor connect',
+        deadline: '2025-07-21',
+        priority: 'high',
+        completed: true,
+      },
+      {
+        id: 2,
+        title: 'Prepare for end',
+        description: 'Study slides and notes tomorrow',
+        deadline: '2025-06-10',
+        priority: 'medium',
+        completed: true,
+      },
+      {
+        id: 3,
+        title: 'Build Portfolio website',
+        description: 'Create a personal portfolio to showcase projects',
+        deadline: '2025-12-30',
+        priority: 'medium',
+        completed: false,
+      },
+      {
+        id: 4,
+        title: 'Complete Advanced React course',
+        description: 'Finish the last module of the course',
+        deadline: '2025-06-10',
+        priority: 'high',
+        completed: true,
+      },
+      {
+        id: 5, 
+        title: 'Prepare for end semester exams',
+        description: 'Review all subjects and practice past papers',
+        deadline: '2025-08-04',
+        priority: 'high',
+        completed: false,
+      },
+      {
+        id: 6,
+        title: 'Learn Database and Backend',
+        description: 'Learn about databases and backend development',
+        deadline: '2025-08-04',
+        priority: 'low',
+        completed: false,
+      }
+    ];

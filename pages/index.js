@@ -33,7 +33,6 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Final CTA */}
       <section className="bg-blue-50 py-16 text-center">
         <h2 className="text-3xl font-bold mb-4 text-blue-800">Ready to take control of your time?</h2>
         <p className="text-gray-600 mb-6">Join hundreds of users planning better days with Daily Planner.</p>
