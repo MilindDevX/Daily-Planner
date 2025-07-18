@@ -6,7 +6,6 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen bg-white text-gray-900">
-      {/* Hero Section */}
       <section className="bg-gradient-to-br from-blue-100 to-purple-100 py-20 text-center">
         <h1 className="text-5xl font-extrabold text-blue-700 mb-4">
           Plan Your Day With Purpose
@@ -22,7 +21,6 @@ const LandingPage = () => {
         </button>
       </section>
 
-      {/* Features Section */}
       <section className="py-16 px-6 max-w-6xl mx-auto text-center">
         <h2 className="text-3xl font-bold mb-10">Everything You Need To Stay Organized</h2>
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">

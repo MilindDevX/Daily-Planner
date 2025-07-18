@@ -22,22 +22,22 @@ export const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-  // Email/Password login
+
   const login = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
 
-  // Email/Password signup
+
   const signup = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  // Logout
+
   const logout = () => {
     return signOut(auth);
   };
 
-  // Google login
+
   const loginWithGoogle = () => {
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider);
